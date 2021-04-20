@@ -6,6 +6,9 @@ import java.util.Scanner;
 import Classes.Contato;
 
 public class Programa extends Contato {
+public Programa(String nome2, String telefone2, int codigo2) {
+super(nome2, telefone2, codigo2);
+}
     public static void main(String[] args) {
         List<Contato> contatos = new ArrayList<>();
         int opcao, totalcontatos = 0;
@@ -31,22 +34,28 @@ public class Programa extends Contato {
             //#endregion
             switch (opcao) {
                 case 1:
-                for(Contato contato : contatos) {
-                    System.out.println("Digite aqui o código do seu contato");
-                    contato.setCodigo(ler.nextInt());
-                    ler.nextLine();
-                    System.out.println("Digite aqui o nome do seu contato");
-                    contato.setNome(ler.nextLine());
-                    System.out.println("Digite aqui o telefone do seu contato");
-                    contato.setTelefone(ler.nextLine());
-                    contato.add(new Contato());
-                }
+                    int codigo;
+                    do {
+                        System.out.println("\n Digite 1 para cadastrar um novo contato ou 2 para retornar");
+                        opcao = ler.nextInt();
+                        ler.nextLine();
 
-                break;
+                        if (opcao == 1) {
+                            System.out.println("Insira aqui o Nome do contato:");
+                            String nome = ler.nextLine();
+                            System.out.println("Insira aqui o Numero de telefone do contato");
+                            String telefone = ler.nextLine();
+                            System.out.println("Insira aqui o Código do contato");
+                            codigo = ler.nextInt();
+
+                            contatos.add(new Contato(nome, telefone, codigo));
+                            System.out.println("Seu contato foi salvo!");
+
+                        }
+                        
+                    } while (opcao == 2);
+                    break;
                 case 2:
-                if (contatos.isEmpty()) {
-                    System.out.println(" Infelizmente não há nenhum contato cadastrado :( ");
-                  } else 
                     contatos.sort(null);
                     System.out.println("\n****** Contatos ******** ");
                     for (Contato contato : contatos) {
@@ -62,7 +71,7 @@ public class Programa extends Contato {
                 break;
                 case 4:
                 System.out.println("Digite o código do contato que deseja procurar: ");
-                int codigo = ler.nextInt();
+                codigo = ler.nextInt();
                 achei = false;
                 ler.nextLine();
                 for(Contato contato : contatos) {
@@ -108,6 +117,7 @@ public class Programa extends Contato {
         } while (opcao != 0);
 
         ler.close();
+        
     }
 }
 

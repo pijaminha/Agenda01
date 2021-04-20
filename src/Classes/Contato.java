@@ -6,6 +6,8 @@ public class Contato {
     private String nome;
     private String telefone;
     
+    public Contato(String nome2, String telefone2, int codigo2) {
+    }
     public int getCodigo() {
         return codigo;
     }
