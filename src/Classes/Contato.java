@@ -28,9 +28,10 @@ public class Contato {
     }
     public void add(Contato contato) {
     }
+    
     @Override
     public String toString() {
-        return "Contato [codigo=" + codigo + ", nome=" + nome + ", telefone=" + telefone + "]";
+        return "Contato codigo =" + getCodigo() + ", nome =" + getNome() + ", telefone =" + getTelefone();
     }
 }
 

@@ -56,8 +56,8 @@ super(nome2, telefone2, codigo2);
                     } while (opcao == 2);
                     break;
                 case 2:
-                    contatos.sort(null);
-                    System.out.println("\n****** Contatos ******** ");
+                        contatos.sort(null);
+                        System.out.println("\n****** Contatos ******** ");
                     for (Contato contato : contatos) {
                         System.out.println(">" + contato);     
                     }
